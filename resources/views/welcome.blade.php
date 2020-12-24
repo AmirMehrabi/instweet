@@ -91,15 +91,14 @@
 
         <!-- Post Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center mx-auto  max-w-3xl">
-            <div class="flex flex-wrap w-full justify-between">
+            <div class="flex flex-wrap w-full justify-cetner">
                 <div class="w-2/5 items-center">
                     <div class="text-gray-700 text-center">
-                        <img src="post.png" alt="" class="mx-auto">
-                    </div>
-                </div>
-                <div class="w-2/5 items-center">
-                    <div class="text-gray-700 text-center">
-                        <img src="{{ asset('images/story.png') }}" alt="" class="mx-auto">
+                    @if (!empty($fileName))
+                    <img src="{{ asset("images/tweets/$fileName") }}" alt="" class="mx-auto rounded border">
+
+                    @endif
+                        {{-- <img src="{{ asset('images/story.png') }}" alt="" class="mx-auto"> --}}
                     </div>
                 </div>
             </div>

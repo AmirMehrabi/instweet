@@ -16,7 +16,8 @@
         "j7mbo/twitter-api-php": "^1.0",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "laravelcollective/html": "^6.2"
+        "laravelcollective/html": "^6.2",
+        "morilog/jalali": "^3.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -37,6 +38,9 @@
         }
     },
     "autoload": {
+        "files": [
+            "bidi.php"
+          ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
