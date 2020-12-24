@@ -16,4 +16,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/create-story', 'App\Http\Controllers\PagesController@createStory')->name('createStory');
+Route::post('/', 'App\Http\Controllers\PagesController@createStory')->name('createStory');

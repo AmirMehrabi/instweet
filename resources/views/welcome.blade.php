@@ -55,7 +55,7 @@
             <a class="font-bold text-gray-800 hover:text-gray-700 text-2xl" href="#">
                 لینک توییت را وارد کنید و قالب اینستاگرام تحویل بگیرید
             </a>
-            {!! Form::open(['url' => '/create-story', 'method' => 'post', 'class' => 'w-full']) !!}
+            {!! Form::open(['route' => 'createStory', 'method' => 'post', 'class' => 'w-full']) !!}
 
                 <div class="flex flex-reverse items-center py-2 m-2">
                     @csrf
