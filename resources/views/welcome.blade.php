@@ -10,14 +10,13 @@
 
     <meta name="author" content="Amir Maso'ud Mehrabian">
     <meta name="description" content="">
-
     <!-- Tailwind -->
     <link href="{{ 'styles/main.css' }}" rel="stylesheet">
 
     <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 </head>
 
 <body class="bg-white">
@@ -56,15 +55,16 @@
             <a class="font-bold text-gray-800 hover:text-gray-700 text-2xl" href="#">
                 لینک توییت را وارد کنید و قالب اینستاگرام تحویل بگیرید
             </a>
-            <form class="w-full">
+            {!! Form::open(['url' => '/create-story', 'method' => 'post', 'class' => 'w-full']) !!}
+
                 <div class="flex flex-reverse items-center py-2 m-2">
-                    <input class="shadow rounded-lg appearance-none bg-transparent border-none w-full text-gray-700 ml-3 py-1 px-2 leading-tight focus:outline-none h-12" type="text" placeholder="لینک توییت" aria-label="لینک توییت">
-                    <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-600 text-sm text-white py-1 px-4 rounded-lg h-12" type="button">
-                    تولید قالب
-                  </button>
+                    @csrf
+                    {!! Form::text('tweet', null, ['aria-label' => 'لینک توییت', 'placeholder' => 'لینک توییت', 'class' => 'shadow rounded-lg appearance-none bg-transparent border-none w-full text-gray-700 ml-3 py-1 px-2 leading-tight focus:outline-none h-12']) !!}
+                    {!! Form::submit('تولید قالب', ['class' => 'flex-shrink-0 bg-blue-500 hover:bg-blue-600 text-sm text-white py-1 px-4 rounded-lg h-12']) !!}    
+
                 </div>
-            </form>
-        </div>
+            {!! Form::close() !!}
+            </div>
     </header>
 
     <!-- Topic Nav -->
