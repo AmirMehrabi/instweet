@@ -35,8 +35,11 @@ class PagesController extends Controller
         $replacement = "";
         $tweet['full_text'] = preg_replace($pattern, $replacement, $tweet['full_text']);
         $text = $tweet['full_text'];
-        
-        $max_len = 65;
+        if($tweet['lang'] == 'en') {
+            $max_len = 40;
+        } else {
+            $max_len = 65;
+        }
         $lines = explode("\n", wordwrap($text, $max_len));
         
         
@@ -50,8 +53,8 @@ class PagesController extends Controller
             $center_x    =  25;
         } else {
             $center_x    = $width - 25;
-        
         }
+
         $center_y    = $height / 2;
         $font_size   = 50;
         $font_height = 50;
@@ -92,7 +95,7 @@ $watermark = Image::make(str_replace("_normal","",$user['profile_image_url']))->
 $img->insert($watermark, 'top-center', 30, 30);
 foreach ($lines as $line)
 {
-    $img->text( $this->per_text($line), ($width / 2), $y, function($font) use ($font_size, $font_height, $tweet){
+    $img->text( $tweet['lang'] == 'en' ? $line : $this->per_text($line), ($width / 2), $y, function($font) use ($font_size, $font_height, $tweet){
 		$font->file('/var/www/html/pikaso/fonts/IRANSansWeb.ttf');
 		$font->size($font_size);
         $font->color('#111');
@@ -110,6 +113,7 @@ foreach ($lines as $line)
 
 $fileName = hash ( "sha256" , time() . basename($tweeUrl) ) .'.png';
 $img->save(public_path('images/tweets/'.$fileName));
+file_put_contents("count.txt",@file_get_contents("count.txt")+1);
 
 return view("welcome", compact('fileName'));
 
