@@ -10,6 +10,12 @@ use Morilog\Jalali\Jalalian;
 class PagesController extends Controller
 {
     public function createStory(Request $request){
+
+        $validated = $request->validate([
+            'tweet' => 'required|regex:/twitter\.com\/(#!\/)?(\w+)\/status(es)*\/(\d+)/'
+        ]);
+
+
         $settings = array(
             'oauth_access_token' => "736459597-SWOhi44BIUzuUTdOrZ4XYVpYlbwFSjldP8OjzeFH",
             'oauth_access_token_secret' => "hsROJ4uFyLaNrF4One56u5bnxzxv6KIAh5qkwTlpFMwUJ",

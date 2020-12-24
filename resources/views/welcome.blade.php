@@ -25,24 +25,13 @@
     <nav class="w-full">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between shadow-lg rounded-lg m-8 py-4 text-blue-800">
 
-            <nav>
                 <ul class="flex items-center justify-between font-bold text-sm no-underline">
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">اینستوییت</a></li>
+                    <li><h1 class="hover:text-gray-700 px-4">اینستوییت</h1></li>
                 </ul>
-            </nav>
 
             <div class="flex items-center text-lg no-underline pr-6">
-                <a class="" href="#">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a class="pl-6" href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a class="pl-6" href="#">
+                <a class="pl-6 hover:text-gray-700" href="https://twitter.com/AmirMehrabian">
                     <i class="fab fa-twitter"></i>
-                </a>
-                <a class="pl-6" href="#">
-                    <i class="fab fa-linkedin"></i>
                 </a>
             </div>
         </div>
@@ -51,6 +40,15 @@
 
     <!-- Text Header -->
     <header class="w-full container mx-auto  max-w-3xl">
+    @if ($errors->any())
+        <div class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg" role="alert">
+            <p>لینکی که وارد کردید معتبر نیست</p>
+                {{-- <span class="absolute inset-y-0 right-0 flex items-center mr-4">
+                    <svg class="w-4 h-4 fill-current" role="button" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                </span> --}}
+        </div>
+    @endif
+    
         <div class="flex flex-col items-center py-12">
             <h1 class="font-bold text-gray-800 hover:text-gray-700 text-2xl">
                 لینک توییت را وارد کنید و قالب استوری برای اینستاگرام تحویل بگیرید
@@ -71,11 +69,12 @@
 
         <!-- Post Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center mx-auto  max-w-3xl">
+        
             <div class="flex flex-wrap w-full justify-cetner">
                 <div class="w-2/5 items-center mx-auto">
                     <div class="text-gray-700 text-center flex flex-col">
                     @if (!empty($fileName))
-                    <img src="{{ asset("images/tweets/$fileName") }}" alt="" class="mx-auto rounded border">
+                    <img src="{{ asset("images/tweets/$fileName") }}" alt="" class="mx-auto rounded-lg border border-gray-400">
                     <a href={{ asset("images/tweets/$fileName") }} class="px-3 py-2 rounded border mx-auto mt-2 bg-blue-400 text-white hover:text-blue-400 hover:bg-white">دانلود</a>
                     @endif
                         {{-- <img src="{{ asset('images/story.png') }}" alt="" class="mx-auto"> --}}
