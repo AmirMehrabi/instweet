@@ -15,7 +15,6 @@ class PagesController extends Controller
             'tweet' => 'required|regex:/twitter\.com\/(#!\/)?(\w+)\/status(es)*\/(\d+)/'
         ]);
 
-
         $settings = array(
             'oauth_access_token' => "736459597-SWOhi44BIUzuUTdOrZ4XYVpYlbwFSjldP8OjzeFH",
             'oauth_access_token_secret' => "hsROJ4uFyLaNrF4One56u5bnxzxv6KIAh5qkwTlpFMwUJ",
@@ -115,7 +114,7 @@ $fileName = hash ( "sha256" , time() . basename($tweeUrl) ) .'.png';
 $img->save(public_path('images/tweets/'.$fileName));
 file_put_contents("count.txt",@file_get_contents("count.txt")+1);
 
-return view("welcome", compact('fileName'));
+return view("homepage", compact('fileName'));
 
 
 
