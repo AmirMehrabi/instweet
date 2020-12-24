@@ -108,7 +108,7 @@ echo $fileName;
     }
 
 
-    function per_text($str)
+    protected function per_text($str)
     {
         include_once('bidi.php');
     
