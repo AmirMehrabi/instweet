@@ -65,7 +65,7 @@ class PagesController extends Controller
 
 
 // Name
-$img->text($this->per_text($user['name']), ($width / 2), 300, function($font) use ($font_size){
+$img->text($tweet['lang'] == 'fa' ? $this->per_text($user['name']) : $user['name'], ($width / 2), 300, function($font) use ($font_size){
 	$font->file('/var/www/html/pikaso/fonts/IRANSansWeb.ttf');
 	$font->size(41);
 	$font->color('#000');
@@ -95,7 +95,7 @@ $watermark = Image::make(str_replace("_normal","",$user['profile_image_url']))->
 $img->insert($watermark, 'top-center', 30, 30);
 foreach ($lines as $line)
 {
-    $img->text( $tweet['lang'] == 'en' ? $line : $this->per_text($line), ($width / 2), $y, function($font) use ($font_size, $font_height, $tweet){
+    $img->text( $tweet['lang'] == 'fa' ? $this->per_text($line) : $line , ($width / 2), $y, function($font) use ($font_size, $font_height, $tweet){
 		$font->file('/var/www/html/pikaso/fonts/IRANSansWeb.ttf');
 		$font->size($font_size);
         $font->color('#111');
