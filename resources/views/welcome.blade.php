@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>InsTweet</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -12,7 +12,7 @@
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="{{ styles/main.css }}" rel="stylesheet">
+    <link href="{{ 'styles/main.css' }}" rel="stylesheet">
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -28,7 +28,7 @@
 
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm no-underline">
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Alireza</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">اینستوییت</a></li>
                 </ul>
             </nav>
 
@@ -99,7 +99,7 @@
                 </div>
                 <div class="w-2/5 items-center">
                     <div class="text-gray-700 text-center">
-                        <img src="story.png" alt="" class="mx-auto">
+                        <img src="{{ asset('images/story.png') }}" alt="" class="mx-auto">
                     </div>
                 </div>
             </div>
