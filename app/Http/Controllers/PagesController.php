@@ -52,7 +52,7 @@ class PagesController extends Controller
 
 
 // Name
-$img->text(per_text($user['name']), ($width / 2), 300, function($font) use ($font_size){
+$img->text($this->per_text($user['name']), ($width / 2), 300, function($font) use ($font_size){
 	$font->file('/var/www/html/pikaso/fonts/IRANSansWeb.ttf');
 	$font->size(41);
 	$font->color('#000');
@@ -70,7 +70,7 @@ $img->text('(@'.$user['screen_name'].')', ($width / 2), 360, function($font) use
 });
 
 // Date
-$img->text(per_text(\Morilog\Jalali\Jalalian::forge($tweet['created_at'])->format('l j F Y - H:i')), ($width / 2), 420, function($font) use ($font_size){
+$img->text($this->per_text(\Morilog\Jalali\Jalalian::forge($tweet['created_at'])->format('l j F Y - H:i')), ($width / 2), 420, function($font) use ($font_size){
 	$font->file('/var/www/html/pikaso/fonts/IRANSansWeb.ttf');
 	$font->size(35);
 	$font->color('#00dcff');
@@ -82,7 +82,7 @@ $watermark = Image::make(str_replace("_normal","",$user['profile_image_url']))->
 $img->insert($watermark, 'top-center', 30, 30);
 foreach ($lines as $line)
 {
-    $img->text( per_text($line), ($width / 2), $y, function($font) use ($font_size, $font_height, $tweet){
+    $img->text( $this->per_text($line), ($width / 2), $y, function($font) use ($font_size, $font_height, $tweet){
 		$font->file('/var/www/html/pikaso/fonts/IRANSansWeb.ttf');
 		$font->size($font_size);
         $font->color('#111');
