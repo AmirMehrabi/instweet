@@ -52,9 +52,9 @@
     <!-- Text Header -->
     <header class="w-full container mx-auto  max-w-3xl">
         <div class="flex flex-col items-center py-12">
-            <a class="font-bold text-gray-800 hover:text-gray-700 text-2xl" href="#">
+            <h1 class="font-bold text-gray-800 hover:text-gray-700 text-2xl">
                 لینک توییت را وارد کنید و قالب استوری برای اینستاگرام تحویل بگیرید
-            </a>
+            </h1>
             {!! Form::open(['route' => 'createStory', 'method' => 'post', 'class' => 'w-full']) !!}
 
                 <div class="flex flex-reverse items-center py-2 m-2">
