@@ -12,14 +12,10 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5",
         "intervention/image": "^2.5",
         "j7mbo/twitter-api-php": "^1.0",
-        "nojimage/twitter-text-php": "^3.1",
-        "arutil/ar-php": "^0.1.1",
-        "stil/gd-text": "^1.1",
-        "morilog/jalali": "^3.2"
+        "laravel/framework": "^8.12",
+        "laravel/tinker": "^2.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
