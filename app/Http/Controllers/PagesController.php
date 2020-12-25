@@ -16,10 +16,10 @@ class PagesController extends Controller
         ]);
 
         $settings = array(
-            'oauth_access_token' => env('oauth_access_token', ''),
-            'oauth_access_token_secret' => env('oauth_access_token_secret', ''),
-            'consumer_key' => env('consumer_key', ''),
-            'consumer_secret' => env('consumer_secret', '')
+            'oauth_access_token' => env('OAUTH_ACCESS_TOKEN', ''),
+            'oauth_access_token_secret' => env('OAUTH_ACCESS_TOKEN_SECRET', ''),
+            'consumer_key' => env('CONSUMER_KEY', ''),
+            'consumer_secret' => env('CONSUMER_SECRET', '')
         );
         $tweeUrl = $request->tweet;
         $url = 'https://api.twitter.com/1.1/statuses/show/'.basename($tweeUrl).'.json';
@@ -127,7 +127,6 @@ return view("homepage", compact('fileName'));
         $text = explode("\n", $str);
     
         $str = array();
-        $bidi = new \bidi;
         foreach($text as $line){
             $chars = $this->utf8Bidi($this->UTF8StringToArray($line), 'R');
             $line = '';
