@@ -21,7 +21,16 @@ class PagesController extends Controller
             'consumer_key' => env('CONSUMER_KEY', ''),
             'consumer_secret' => env('CONSUMER_SECRET', '')
         );
-        $tweeUrl = $request->tweet;
+
+        if (preg_match('/twitter\.com\/(#!\/)?(\w+)\/status(es)*\/(\d+)/', $request->tweet, $match)) 
+        {
+            $tweeUrl =$match[0];
+        }
+        else
+        {
+            return redirect::back();
+        }
+        // $tweeUrl = $request->tweet;
         $url = 'https://api.twitter.com/1.1/statuses/show/'.basename($tweeUrl).'.json';
         $getfield = '&tweet_mode=extended&texst=';
         $requestMethod = 'GET';
