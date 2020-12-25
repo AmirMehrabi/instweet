@@ -16,10 +16,10 @@ class PagesController extends Controller
         ]);
 
         $settings = array(
-            'oauth_access_token' => "736459597-SWOhi44BIUzuUTdOrZ4XYVpYlbwFSjldP8OjzeFH",
-            'oauth_access_token_secret' => "hsROJ4uFyLaNrF4One56u5bnxzxv6KIAh5qkwTlpFMwUJ",
-            'consumer_key' => "fblz9XthCfG6m9iqCBbEWdJYF",
-            'consumer_secret' => "Yj7k0ltvGQFPzN5tGN1ZFjXcF5caf0zFvQ2YZbiO8JVSNfMh1e"
+            'oauth_access_token' => env('oauth_access_token', ''),
+            'oauth_access_token_secret' => env('oauth_access_token_secret', ''),
+            'consumer_key' => env('consumer_key', ''),
+            'consumer_secret' => env('consumer_secret', '')
         );
         $tweeUrl = $request->tweet;
         $url = 'https://api.twitter.com/1.1/statuses/show/'.basename($tweeUrl).'.json';
